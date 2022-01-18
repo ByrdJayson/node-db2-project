@@ -20,13 +20,13 @@ router.get('/:id'), md.checkCarId, (req, res, next) => {
         .catch(next)
 }
 
-router.post('/', (req, res, next) => {
+router.post('/'), md.checkCarPayload, (req, res, next) => {
     Cars.create(req.body)
         .then(car => {
             res.status(201).json(car)
         })
         .catch(next)
-})
+}
 
 
 
