@@ -1,4 +1,3 @@
-const knex = require('knex')
 const db = require('../../data/db-config')
 
 const getAll = () => {
@@ -9,7 +8,13 @@ const getById = (id) => {
   return db('cars').where('id', id).first();
 }
 
-const create = (car) => {
+const create = async (car) => {
   const [id] = await db('cars').insert(car)
   return getById(id)
+}
+
+module.exports = {
+  getAll,
+  getById,
+  create
 }

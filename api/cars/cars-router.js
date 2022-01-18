@@ -1,13 +1,13 @@
-const router = require('express').Router()
 const Cars = require('./cars-model')
+const router = require('express').Router()
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     Cars.getAll()
         .then(cars => {
             res.json(cars)
         })
         .catch(err => {
-            res.status(500).json({message: 'Internal Server Error'})
+            next(err)
         })
 })
 
