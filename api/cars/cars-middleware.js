@@ -1,5 +1,4 @@
 const Cars = require('./cars-model')
-const vin = require('vin-validator')
 const vinValidator = require('vin-validator')
 const checkCarId = (req, res, next) => {
   const { id } = req.params
@@ -42,4 +41,11 @@ const checkVinNumberUnique = (req, res, next) => {
   const { vin } = req.body
   
 
+}
+
+module.exports = {
+  checkCarId,
+  checkCarPayload,
+  checkVinNumberUnique,
+  checkVinNumberValid
 }
